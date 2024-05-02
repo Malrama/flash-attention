@@ -95,8 +95,8 @@ jobs:
           file: ./dist/*.whl
           tag: ${{ inputs.version }}
           file_glob: true
-          make_latest: false
           overwrite: true
+          release_name: ${{ inputs.version }}
 
       - uses: actions/upload-artifact@v3
         if: steps.upload-release.outcome == 'failure'
@@ -105,5 +105,4 @@ jobs:
           path: ./dist/*.whl
           
 
-          overwrite: true
-          release_name: ${{ inputs.version }}
+
